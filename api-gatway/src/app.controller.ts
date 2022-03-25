@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import {
   Body,
   Controller,
@@ -21,7 +22,7 @@ export class AppController {
     this.clientAdminBackend = ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://user:qdWT3LNwIBai@100.26.36.255:5672/smartranking'],
+        urls: [process.env.URL_RMQ],
         queue: 'admin-backend',
       },
     });
